@@ -43,7 +43,7 @@ body {
 }
 
 /* Shared styles */
-label, span {
+label {
     display: block;
 }
 
@@ -113,12 +113,13 @@ input::placeholder {
 .front-details .info {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    row-gap: 1.5rem;
+    align-items: center;
+    row-gap: 1rem;
     align-self: stretch;
 }
 
 .front-details .card-number {
-    grid-column: 1 / -1;
+    grid-area: 1 / 1 / -2 / -1;
     font-size: 1.875rem;
     color: var(--white);
 }
@@ -130,10 +131,12 @@ input::placeholder {
 }
 
 .front-details .cardholder-name {
+    grid-area: 2 / 1 / -1 / -2;
     text-transform: uppercase;
 }
 
 .front-details .expiration-date {
+    grid-area: 1 / 2 / -1 / -1;
     text-align: right;
 }
 
@@ -208,6 +211,7 @@ form button:hover {
 }
 
 .error {
+    display: block;
     margin-top: 0.5rem;
     font-size: 0.75rem;
     color: var(--red-400);
@@ -221,6 +225,15 @@ form button:hover {
     position: absolute;
     pointer-events: none;
     opacity: 0;
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease-in forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 @media (min-width: 116rem) {
