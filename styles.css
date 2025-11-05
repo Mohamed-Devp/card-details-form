@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: inherit;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+}
+
+:root {
+    --w: 27.9375rem; /* Credit card width */
+    --h: 15.3235rem; /* Credit card height */
+
+    /* Primary colors */
+    --red-400: hsl(0, 100%, 66%);
+
+    /* Neutral colors */
+    --white: hsl(0, 100%, 100%);
+    --gray-200: hsl(270, 3%, 87%);
+    --gray-400: hsl(212, 12%, 71%);
+    --purple-950: hsl(278, 68%, 11%);
+
+    /* Gradients */
+    --linear-gradient: linear-gradient(90deg, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+
+    /* Typography */
+    --primary-font: "Space Grotesk";
+    --medium: 500;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    gap: 8rem;
+    min-height: 100vh;
+    font-family: var(--primary-font);
+    font-weight: var(--medium);
+    background-color: var(--white);
+    background-image: url("./images/bg-main-desktop.png");
+    background-size: calc(16rem + var(--w) / 2) 100%;
+}
+
+/* Shared styles */
+label, span {
+    display: block;
+}
+
+label, legend {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.125rem;
+    color: var(--purple-950);
+}
+
+input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    outline: none;
+    border: 2px solid var(--gray-200);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: var(--medium);
+    color: var(--purple-950);
+}
+
+input:focus {
+    border-color: transparent;
+    background: 
+        linear-gradient(var(--white), var(--white)) padding-box, 
+        linear-gradient(90deg, hsl(249, 99%, 64%), hsl(278, 94%, 30%)) border-box;
+}
+
+input[aria-invalid="true"] {
+    border: 2px solid var(--red-400);
+}
+
+label:not(.visually-hidden) + input {
+    margin-top: 0.5rem;
+}
+
+input::placeholder {
+    color: var(--gray-400);
+}
+
+/* Card details */
+.card-details {
+    margin-left: 10rem;
+    letter-spacing: 0.125rem;
+}
+
+.card-side {
+    width: var(--w);
+    aspect-ratio: 447 / 245;
+    border-radius: 0.5rem;
+    background-size: cover;
+    box-shadow: 2px 2px 32px hsl(278, 68%, 11%, 0.2);
+}
+
+.front-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    background-image: url("./images/bg-card-front.png");
+}
+
+.front-details > img {
+    align-self: flex-start;
+}
+
+.front-details .info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1.5rem;
+    align-self: stretch;
+}
+
+.front-details .card-number {
+    grid-column: 1 / -1;
+    font-size: 1.875rem;
+    color: var(--white);
+}
+
+.front-details .cardholder-name, 
+.front-details .expiration-date {
+    font-size: 1rem;
+    color: var(--gray-200);
+}
+
+.front-details .cardholder-name {
+    text-transform: uppercase;
+}
+
+.front-details .expiration-date {
+    text-align: right;
+}
+
+.back-details {
+    position: relative;
+    margin: 2rem 0 0 6rem;
+    background-image: url("./images/bg-card-back.png");
+}
+
+.back-details > p {
+    position: absolute;
+    right: 15%;
+    top: 50%;
+    transform: translate(0.75rem, -50%);
+    font-size: 1rem;
+    color: var(--white);
+}
+
+/* Card details form */
+form {
+    width: 24rem;
+}
+
+.fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+}
+
+.fields .cardholder-name, .fields .card-number {
+    grid-column: 1 / -1;
+}
+
+.fields .expiration-date {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.fields .expiration-date > input::placeholder {
+    text-transform: uppercase;
+}
+
+.fields .expiration-date .error {
+    grid-column: 1 / -1;
+}
+
+form button {
+    width: 100%;
+    margin-top: 2.25rem;
+    padding: 0.875rem 0;
+    outline: none;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: var(--medium);
+    color: var(--white);
+    background-color: var(--purple-950);
+    cursor: pointer;
+    transition: opacity 0.2s ease-in;
+}
+
+form button:focus {
+    background: 
+        linear-gradient(var(--purple-950), var(--purple-950)) padding-box, 
+        linear-gradient(90deg, hsl(249, 99%, 64%), hsl(278, 94%, 30%)) border-box;
+}
+
+form button:hover {
+    opacity: 0.9;
+}
+
+.error {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--red-400);
+}
+
+.error.empty {
+    display: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+@media (min-width: 116rem) {
+    body {
+        gap: 10rem;
+        background-size: calc(22rem + var(--w) / 2) 100%;       
+    }
+
+    .card-details {
+        margin-left: 16rem;
+    }
+}
+
+@media (min-width: 64rem) and (max-width: 86rem) {
+    body {
+        gap: 4rem;
+        background-size: calc(8rem + var(--w) / 2) 100%;
+    }
+
+    .card-details {
+        margin-left: 2rem;
+    }
+
+    form {
+        width: 22rem;
+    }
+}
+
+@media (max-width: 64rem) {
+    body {
+        flex-direction: column;
+        gap: 4rem;
+        padding: 2rem 0;
+        background-image: url("./images/bg-main-mobile.png");
+        background-size: 100% clamp(16rem, 35vh, 18rem);
+    }
+
+    .card-details {
+        position: relative;
+        margin-left: 0;
+        padding: 8.5rem 6rem 0 0;
+    }
+
+    .front-details {
+        position: relative;
+        z-index: 2;
+    }
+
+    .back-details {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+        margin: 0;
+    }
+}
