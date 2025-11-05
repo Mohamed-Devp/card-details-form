@@ -57,11 +57,19 @@ label, legend {
 input {
     width: 100%;
     padding: 0.875rem 1rem;
+    outline: none;
     border: 2px solid var(--gray-200);
     border-radius: 0.5rem;
     font-size: 1rem;
     font-weight: var(--medium);
     color: var(--purple-950);
+}
+
+input:focus {
+    border-color: transparent;
+    background: 
+        linear-gradient(var(--white), var(--white)) padding-box, 
+        linear-gradient(90deg, hsl(249, 99%, 64%), hsl(278, 94%, 30%)) border-box;
 }
 
 input[aria-invalid="true"] {
@@ -178,11 +186,25 @@ form button {
     width: 100%;
     margin-top: 2.25rem;
     padding: 0.875rem 0;
+    outline: none;
+    border: 2px solid transparent;
     border-radius: 0.5rem;
     font-size: 1rem;
     font-weight: var(--medium);
     color: var(--white);
     background-color: var(--purple-950);
+    cursor: pointer;
+    transition: opacity 0.2s ease-in;
+}
+
+form button:focus {
+    background: 
+        linear-gradient(var(--purple-950), var(--purple-950)) padding-box, 
+        linear-gradient(90deg, hsl(249, 99%, 64%), hsl(278, 94%, 30%)) border-box;
+}
+
+form button:hover {
+    opacity: 0.9;
 }
 
 .error {
