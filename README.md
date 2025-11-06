@@ -10,8 +10,6 @@ This is a solution to the [Interactive card details form challenge on Frontend M
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
 - [Author](#author)
 
 ## Overview
@@ -29,12 +27,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Desktop preview screenshot](./images/desktop-preview.png)
 
 ### Links
 
-- Solution URL: [here!](https://your-solution-url.com)
-- Live Site URL: [here!](https://your-live-site-url.com)
+- Solution URL: [here!](https://www.frontendmentor.io/solutions/accessible-and-responsive-card-details-form-iOG-iU2nXy)
+- Live Site URL: [here!](https://mohamed-devp.github.io/card-details-form/)
 
 ## My process
 
@@ -44,16 +42,6 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-### What I learned
-
-
-### Continued development
-
 
 ## Author
 
