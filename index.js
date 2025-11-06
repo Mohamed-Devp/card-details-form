@@ -2,6 +2,9 @@ const form = document.querySelector('form');
 const expMonthField = document.getElementById('exp-month');
 const expYearField = document.getElementById('exp-year');
 
+const confirmationMsg = document.querySelector('.confirmation');
+const continueBtn = confirmationMsg.querySelector('button');
+
 const displayEls = document.querySelectorAll('.display');
 const inputEls = document.querySelectorAll('input');
 
@@ -120,6 +123,13 @@ form.addEventListener('submit', (e) => {
     }
 
     if (valid) {
-        alert('Submitted successfully!')
+        form.reset();
+        form.setAttribute('aria-hidden', 'true');
+        confirmationMsg.setAttribute('aria-hidden', 'false');
     }
-})
+});
+
+continueBtn.addEventListener('click', () => {
+    form.setAttribute('aria-hidden', 'false');
+    confirmationMsg.setAttribute('aria-hidden', 'true');
+});

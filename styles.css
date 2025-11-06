@@ -84,6 +84,29 @@ input::placeholder {
     color: var(--gray-400);
 }
 
+button {
+    padding: 0.875rem 0;
+    outline: none;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: var(--medium);
+    color: var(--white);
+    background-color: var(--purple-950);
+    cursor: pointer;
+    transition: opacity 0.2s ease-in;
+}
+
+button:focus {
+    background: 
+        linear-gradient(var(--purple-950), var(--purple-950)) padding-box, 
+        linear-gradient(90deg, hsl(249, 99%, 64%), hsl(278, 94%, 30%)) border-box;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
 /* Card details */
 .card-details {
     margin-left: 10rem;
@@ -160,6 +183,10 @@ form {
     width: 24rem;
 }
 
+form[aria-hidden="true"] {
+    display: none;
+}
+
 .fields {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -189,26 +216,37 @@ form {
 form button {
     width: 100%;
     margin-top: 2.25rem;
-    padding: 0.875rem 0;
-    outline: none;
-    border: 2px solid transparent;
-    border-radius: 0.5rem;
+}
+
+.confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 24rem;
+    gap: 2.25rem;
+    text-align: center;
+    animation: fadeOut 0.4s ease-in forwards;
+}
+
+.confirmation[aria-hidden="true"] {
+    display: none;
+}
+
+.details p:first-child {
+    font-size: 1.625rem;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+    color: var(--purple-950);
+}
+
+.details p:last-child {
+    margin-top: 1rem;
     font-size: 1rem;
-    font-weight: var(--medium);
-    color: var(--white);
-    background-color: var(--purple-950);
-    cursor: pointer;
-    transition: opacity 0.2s ease-in;
+    color: var(--gray-400);
 }
 
-form button:focus {
-    background: 
-        linear-gradient(var(--purple-950), var(--purple-950)) padding-box, 
-        linear-gradient(90deg, hsl(249, 99%, 64%), hsl(278, 94%, 30%)) border-box;
-}
-
-form button:hover {
-    opacity: 0.9;
+.confirmation button {
+    align-self: stretch;
 }
 
 .error {
@@ -258,7 +296,7 @@ form button:hover {
         margin-left: 2rem;
     }
 
-    form {
+    form, .confirmation {
         width: 22rem;
     }
 }
